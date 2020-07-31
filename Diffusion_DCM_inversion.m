@@ -32,7 +32,9 @@ struct(logical(eye(size(struct))))  = 0; % no self-structural connectivity
 % prior means (adjust according to known constraints)
 P.Adj                               = struct; % structural connectivity
 P.C                                 = ones(n,1)/16; % extrinsic connect. 
-P.sig                               = 0; % diffusion coefficient
+P.sig                               = 0; % diffusion coefficient, note that
+% models in which the estimate of the diffusion coefficient is negative 
+% should be excluded prior to any subsequent model averaging
 P.A                                 = full(-speye(n)/16); % func. conn.
 
 % prior variance
